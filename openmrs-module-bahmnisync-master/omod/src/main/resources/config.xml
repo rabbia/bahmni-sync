@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<module configVersion="1.2">
+
+	<!-- Module Properties -->
+	<id>${project.parent.artifactId}</id>
+	<name>${project.parent.name}</name>
+	<version>${project.parent.version}</version>
+	<package>${project.parent.groupId}.${project.parent.artifactId}</package>
+	<author>Rabbia Hassan</author>
+	<description>
+		${project.parent.description}
+	</description>
+	<updateURL>https://modules.openmrs.org/modules/download/${project.parent.artifactId}/update.rdf</updateURL>
+	<require_version>1.11.3, 1.10.2 - 1.10.*, 1.9.9 - 1.9.*</require_version>
+	<!-- / Module Properties -->
+
+	<aware_of_modules>
+	    <aware_of_module>org.openmrs.module.legacyui</aware_of_module>
+	</aware_of_modules>
+	
+	<!-- Module Activator -->
+	<activator>${project.parent.groupId}.${project.parent.artifactId}.BahmniSyncMasterActivator</activator>
+	
+	
+	<!-- Adds link to admin page -->
+	<extension>
+		<point>org.openmrs.admin.list</point>
+		<class>${project.parent.groupId}.${project.parent.artifactId}.extension.html.AdminList</class>
+	</extension>
+	
+	<privilege>
+		<name>Manage Bahmni Sync</name>
+		<description>Allows user to access Bahmni Sync pages/functions</description>
+	</privilege>
+	
+	<globalProperty>
+		<property>@MODULE_ID@.kafka.url</property>
+		<defaultValue>localhost:9092</defaultValue>
+		<description>
+			Kafka Server url
+		</description>
+	</globalProperty>
+	
+	<globalProperty>
+		<property>@MODULE_ID@.database.server.name</property>
+		<defaultValue>dbserver1</defaultValue>
+		<description>
+			Database Server Name
+		</description>
+	</globalProperty>
+	
+	<globalProperty>
+		<property>@MODULE_ID@.openmrs.schema.name</property>
+		<defaultValue>openmrs</defaultValue>
+		<description>
+			OpenMRS Schema Name
+		</description>
+	</globalProperty>
+	
+	<globalProperty>
+		<property>@MODULE_ID@.conflict.resolution.rule</property>
+		<defaultValue>latest date_updated</defaultValue>
+		<description>
+			options: latest date_updated, earliest date_updated, master always, worker always
+		</description>
+	</globalProperty>
+	
+	<!-- Maps hibernate file's, if present -->
+	<mappingFiles>
+				
+	</mappingFiles>
+
+	<!-- Internationalization -->
+	<!-- All message codes should start with ${project.parent.artifactId}. -->
+	<messages>
+		<lang>en</lang>
+		<file>messages.properties</file>
+	</messages>
+	<messages>
+		<lang>fr</lang>
+		<file>messages_fr.properties</file>
+	</messages>
+	<messages>
+		<lang>es</lang>
+		<file>messages_es.properties</file>
+	</messages>
+	<!-- /Internationalization -->
+
+</module>
+
