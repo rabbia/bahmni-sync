@@ -64,7 +64,7 @@
  
 ## Setting up OpenMRS SDK Dev Environment
  
- *To Setup the OpenMRS Server for the Developement follow instructions [hera](https://wiki.openmrs.org/display/docs/OpenMRS+SDK)*
+ *To Setup the OpenMRS Server for the Developement follow instructions [here](https://wiki.openmrs.org/display/docs/OpenMRS+SDK)*
  
  Clone project on your system. Let's build, deploy and run the module on the server. From the project directory:
  
@@ -76,5 +76,26 @@
 ## Setting up Required Global Properties in OpenMRS
 
  Both modules have a configuration page that needs to be completed before you can use it for the syncing purposes. 
-
  
+  ### Worker Module Properties
+ 
+  | Property name | Description | Default | 
+| --- | --- | --- |
+| bahmnisyncworker.worker.node.id | Worker ID, should be be unique among all the nodes synchronizing to master | - |
+| bahmnisyncworker.master.url | Master url for data sync | - |
+| bahmnisyncworker.kafka.url | Kafka Server url | localhost:9092 |
+| bahmnisyncworker.sync.chunk.size | SMaximum number of changes per request | 2 |
+| bahmnisyncworker.database.server.name | Database Server Name | dbserver1 |
+| bahmnisyncworker.openmrs.schema.name | OpenMRS Schema Name | openmrs |
+| bahmnisyncworker.master.node.user | Bahmni Sync Master Node username with Bahmni Sync privileges | superman |
+| bahmnisyncworker.master.node.password | Bahmni Sync Master Node password | Admin123 |
+ 
+ ### Master Module Properties
+ 
+ | Property name | Description | Default | 
+| --- | --- | --- |
+| bahmnisyncmaster.kafka.url | Kafka Server url | localhost:9092 |
+| bahmnisyncmaster.database.server.name | Database Server Name | dbserver1 |
+| bahmnisyncmaster.openmrs.schema.name | OpenMRS Schema Name | openmrs | 
+| bahmnisyncmaster.conflict.resolution.rule | options: latest date_updated, earliest date_updated, master always, worker always | latest date_updated | 
+
