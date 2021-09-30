@@ -84,7 +84,7 @@
 | bahmnisyncworker.worker.node.id | Worker ID, should be be unique among all the nodes synchronizing to master | - |
 | bahmnisyncworker.master.url | Master url for data sync | - |
 | bahmnisyncworker.kafka.url | Kafka Server url | localhost:9092 |
-| bahmnisyncworker.sync.chunk.size | SMaximum number of changes per request | 2 |
+| bahmnisyncworker.sync.chunk.size | Maximum number of changes per request | 2 |
 | bahmnisyncworker.database.server.name | Database Server Name | dbserver1 |
 | bahmnisyncworker.openmrs.schema.name | OpenMRS Schema Name | openmrs |
 | bahmnisyncworker.master.node.user | Bahmni Sync Master Node username with Bahmni Sync privileges | superman |
@@ -98,4 +98,8 @@
 | bahmnisyncmaster.database.server.name | Database Server Name | dbserver1 |
 | bahmnisyncmaster.openmrs.schema.name | OpenMRS Schema Name | openmrs | 
 | bahmnisyncmaster.conflict.resolution.rule | options: latest date_updated, earliest date_updated, master always, worker always | latest date_updated | 
+ 
+## User privileges Required
+ 
+ - Manage Bahmni Sync 
 
