@@ -1,6 +1,8 @@
-# bahmni-sync Development Environment setup
+# Bahmni Sync Development Environment setup
 
 ## Prerequisites
+ - Oracle JDK 8
+ - OpenMRS SDK
  - Docker is installed and running.
  
 ## Setting up Debezium
@@ -59,4 +61,20 @@
 
  *For more details see Debezium Tutorial [here](https://debezium.io/documentation/reference/tutorial.html)*
  
+ 
+## Setting up OpenMRS SDK Dev Environment
+ 
+ *To Setup the OpenMRS Server for the Developement follow instructions [hera](https://wiki.openmrs.org/display/docs/OpenMRS+SDK)*
+ 
+ Clone project on your system. Let's build, deploy and run the module on the server. From the project directory:
+ 
+     mvn clean install openmrs-sdk:run
+ 
+ Repeat for both projects. You will need to create two different server for each project. 
+ 
+ 
+## Setting up Required Global Properties in OpenMRS
+
+ Both modules have a configuration page that needs to be completed before you can use it for the syncing purposes. 
+
  
